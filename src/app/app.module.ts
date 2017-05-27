@@ -6,22 +6,31 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
+import { FriendsComponent } from './friends/friends.component';
+import { MessagesComponent } from './messages/messages.component';
+
 
 import { UserService } from './user.service';
 import { FeedService } from './feed.service';
+
+import { routing, appRoutingProviders } from './app.routing';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    FeedComponent
+    FeedComponent,
+    FriendsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [UserService, FeedService],
+  providers: [UserService, FeedService, appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
