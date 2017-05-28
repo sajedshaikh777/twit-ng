@@ -15,6 +15,11 @@ import { FeedService } from './feed.service';
 
 import { routing, appRoutingProviders } from './app.routing';
 
+// imports for loading and configuring the in memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MockDatabaseService } from './mock.database.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +33,10 @@ import { routing, appRoutingProviders } from './app.routing';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    InMemoryWebApiModule.forRoot(MockDatabaseService, {
+      delay: 100, rootPath: '/api'
+    })
   ],
   providers: [UserService, FeedService, appRoutingProviders],
   bootstrap: [AppComponent]
