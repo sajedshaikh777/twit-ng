@@ -35,7 +35,7 @@ import { MockDatabaseService } from './mock.database.service';
     HttpModule,
     routing,
     InMemoryWebApiModule.forRoot(MockDatabaseService, {
-      delay: 100, rootPath: '/api'
+      delay: 3000, rootPath: '/api'
     })
   ],
   providers: [UserService, FeedService, appRoutingProviders],

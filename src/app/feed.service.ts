@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpModule, Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Rx';
 import { UserService } from './user.service';
 import { Tweet } from './tweet';
 
@@ -29,7 +28,12 @@ export class FeedService {
 				fetchedTweets.push(this.getTweetFromJson(tweet));
 			}
 			return fetchedTweets as Array<Tweet>;
-		});
+		}).catch( this.handleError );
+	}
+
+	private handleError(err) {
+		console.log(err);
+		return Observable.throw(err);
 	}
 
 	private isUserInCollection(collection: string[], userId: string): boolean {
@@ -45,8 +49,11 @@ export class FeedService {
 			console.log(resp);
 			if(resp.status == 204) {
 				console.log("Succecss. Yay!");
+			} else {
+				throw `Error fetching tweet ${tweet.id}. Recived status code: ${resp.status}`;
+				
 			}
-		});
+		}).catch( this.handleError );
 
 	}
 
@@ -77,10 +84,7 @@ export class FeedService {
 	}	
 
 	getFriends(): Observable<string[]> {
-
 		return this.http.get('../assets/friends.json').map((resp: Response) => resp.json() as string[])
-
-		// return ['Mary', 'Joe', 'Karen', 'Phil', 'Toni' ];
 	}
 
 
