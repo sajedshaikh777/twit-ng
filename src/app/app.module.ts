@@ -8,13 +8,12 @@ import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
 import { FriendsComponent } from './friends/friends.component';
 import { MessagesComponent } from './messages/messages.component';
-
+import { FriendComponent } from './friend/friend.component';
 
 import { UserService } from './user.service';
 import { FeedService } from './feed.service';
 
 import { routing, appRoutingProviders } from './app.routing';
-
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import { routing, appRoutingProviders } from './app.routing';
     MenuComponent,
     FeedComponent,
     FriendsComponent,
-    MessagesComponent
+    MessagesComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,
