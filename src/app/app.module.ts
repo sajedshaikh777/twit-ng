@@ -9,6 +9,7 @@ import { FeedComponent } from './feed/feed.component';
 import { FriendsComponent } from './friends/friends.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FriendComponent } from './friend/friend.component';
+import { LoginComponent } from './login/login.component';
 
 import { UserService } from './user.service';
 import { FeedService } from './feed.service';
@@ -20,6 +21,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MockDatabaseService } from './mock.database.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { MockDatabaseService } from './mock.database.service';
     FeedComponent,
     FriendsComponent,
     MessagesComponent,
-    FriendComponent
+    FriendComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
